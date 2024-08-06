@@ -86,3 +86,10 @@ make dockerc-upb
 
 # Файл docker-compose.yaml располагается в папке deployments
 ```
+
+### Примеры и документация к API
+1. [OpenAPI-спецификация](./internal/api/spec/openapi.yaml)
+   
+
+2. [Postman-коллекция](
+    ./api/schoolmat-rest.postman_collection.json)
