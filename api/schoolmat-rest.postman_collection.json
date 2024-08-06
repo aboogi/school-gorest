@@ -1,0 +1,780 @@
+{
+	"info": {
+		"_postman_id": "7b679228-7c0a-4d3b-8545-4cbe0c59a9b6",
+		"name": "schoolmat-rest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16198571"
+	},
+	"item": [
+		{
+			"name": "school",
+			"item": [
+				{
+					"name": "materials",
+					"item": [
+						{
+							"name": "{material_id}",
+							"item": [
+								{
+									"name": "Get School Material",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/school/materials/:material_id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"school",
+												"materials",
+												":material_id"
+											],
+											"variable": [
+												{
+													"key": "material_id",
+													"value": "<uuid>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/school/materials/:material_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"school",
+														"materials",
+														":material_id"
+													],
+													"variable": [
+														{
+															"key": "material_id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<uuid>\",\n  \"material_type\": \"article\",\n  \"status\": \"active\",\n  \"name\": \"<string>\",\n  \"content\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}"
+										},
+										{
+											"name": "BadRequest",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/school/materials/:material_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"school",
+														"materials",
+														":material_id"
+													],
+													"variable": [
+														{
+															"key": "material_id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": null
+										},
+										{
+											"name": "NotFound",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/school/materials/:material_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"school",
+														"materials",
+														":material_id"
+													],
+													"variable": [
+														{
+															"key": "material_id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": null
+										},
+										{
+											"name": "InternalError",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/school/materials/:material_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"school",
+														"materials",
+														":material_id"
+													],
+													"variable": [
+														{
+															"key": "material_id"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": null
+										}
+									]
+								},
+								{
+									"name": "Update School Material",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"material_type\": \"article\",\n  \"status\": \"archive\",\n  \"name\": \"<string>\",\n  \"content\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/school/materials/:material_id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"school",
+												"materials",
+												":material_id"
+											],
+											"variable": [
+												{
+													"key": "material_id",
+													"value": "<uuid>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Untitled Example",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"material_type\": \"article\",\n  \"status\": \"archive\",\n  \"name\": \"<string>\",\n  \"content\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/school/materials/:material_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"school",
+														"materials",
+														":material_id"
+													],
+													"variable": [
+														{
+															"key": "material_id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<uuid>\",\n  \"material_type\": \"article\",\n  \"status\": \"active\",\n  \"name\": \"<string>\",\n  \"content\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}"
+										},
+										{
+											"name": "BadRequest",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"material_type\": \"article\",\n  \"status\": \"archive\",\n  \"name\": \"<string>\",\n  \"content\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/school/materials/:material_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"school",
+														"materials",
+														":material_id"
+													],
+													"variable": [
+														{
+															"key": "material_id"
+														}
+													]
+												}
+											},
+											"status": "Bad Request",
+											"code": 400,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": null
+										},
+										{
+											"name": "NotFound",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"material_type\": \"article\",\n  \"status\": \"archive\",\n  \"name\": \"<string>\",\n  \"content\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/school/materials/:material_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"school",
+														"materials",
+														":material_id"
+													],
+													"variable": [
+														{
+															"key": "material_id"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": null
+										},
+										{
+											"name": "InternalError",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"material_type\": \"article\",\n  \"status\": \"archive\",\n  \"name\": \"<string>\",\n  \"content\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/school/materials/:material_id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"school",
+														"materials",
+														":material_id"
+													],
+													"variable": [
+														{
+															"key": "material_id"
+														}
+													]
+												}
+											},
+											"status": "Internal Server Error",
+											"code": 500,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": null
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Get School Material Array",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/school/materials?material_type=presentation&from_created_at=<dateTime>&to_created_at=<dateTime>&page=<integer>&page_size=<integer>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"school",
+										"materials"
+									],
+									"query": [
+										{
+											"key": "material_type",
+											"value": "presentation"
+										},
+										{
+											"key": "from_created_at",
+											"value": "<dateTime>"
+										},
+										{
+											"key": "to_created_at",
+											"value": "<dateTime>"
+										},
+										{
+											"key": "page",
+											"value": "<integer>"
+										},
+										{
+											"key": "page_size",
+											"value": "<integer>"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Untitled Example",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/school/materials?material_type=presentation&from_created_at=<dateTime>&to_created_at=<dateTime>&page=<integer>&page_size=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"school",
+												"materials"
+											],
+											"query": [
+												{
+													"key": "material_type",
+													"value": "presentation"
+												},
+												{
+													"key": "from_created_at",
+													"value": "<dateTime>"
+												},
+												{
+													"key": "to_created_at",
+													"value": "<dateTime>"
+												},
+												{
+													"key": "page",
+													"value": "<integer>"
+												},
+												{
+													"key": "page_size",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"materials\": [\n    {\n      \"id\": \"<uuid>\",\n      \"material_type\": \"video\",\n      \"status\": \"active\",\n      \"name\": \"<string>\",\n      \"content\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"material_type\": \"video\",\n      \"status\": \"archive\",\n      \"name\": \"<string>\",\n      \"content\": \"<string>\",\n      \"created_at\": \"<dateTime>\",\n      \"updated_at\": \"<dateTime>\"\n    }\n  ]\n}"
+								},
+								{
+									"name": "BadRequest",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/school/materials?material_type=presentation&from_created_at=<dateTime>&to_created_at=<dateTime>&page=<integer>&page_size=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"school",
+												"materials"
+											],
+											"query": [
+												{
+													"key": "material_type",
+													"value": "presentation"
+												},
+												{
+													"key": "from_created_at",
+													"value": "<dateTime>"
+												},
+												{
+													"key": "to_created_at",
+													"value": "<dateTime>"
+												},
+												{
+													"key": "page",
+													"value": "<integer>"
+												},
+												{
+													"key": "page_size",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "InternalError",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/school/materials?material_type=presentation&from_created_at=<dateTime>&to_created_at=<dateTime>&page=<integer>&page_size=<integer>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"school",
+												"materials"
+											],
+											"query": [
+												{
+													"key": "material_type",
+													"value": "presentation"
+												},
+												{
+													"key": "from_created_at",
+													"value": "<dateTime>"
+												},
+												{
+													"key": "to_created_at",
+													"value": "<dateTime>"
+												},
+												{
+													"key": "page",
+													"value": "<integer>"
+												},
+												{
+													"key": "page_size",
+													"value": "<integer>"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": null
+								}
+							]
+						},
+						{
+							"name": "Create School Material",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"material_type\": \"article\",\n  \"status\": \"archive\",\n  \"name\": \"<string>\",\n  \"content\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/school/materials",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"school",
+										"materials"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Untitled Example",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"material_type\": \"article\",\n  \"status\": \"archive\",\n  \"name\": \"<string>\",\n  \"content\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/school/materials",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"school",
+												"materials"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"uuid\": \"<uuid>\"\n}"
+								},
+								{
+									"name": "BadRequest",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"material_type\": \"article\",\n  \"status\": \"archive\",\n  \"name\": \"<string>\",\n  \"content\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/school/materials",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"school",
+												"materials"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": null
+								},
+								{
+									"name": "InternalError",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"material_type\": \"article\",\n  \"status\": \"archive\",\n  \"name\": \"<string>\",\n  \"content\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/school/materials",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"school",
+												"materials"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": null
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "protocol",
+			"value": "http"
+		},
+		{
+			"key": "hostsrv",
+			"value": "localhost:9000"
+		},
+		{
+			"key": "baseUrl",
+			"value": "{{protocol}}://{{hostsrv}}/api/v1"
+		}
+	]
+}
