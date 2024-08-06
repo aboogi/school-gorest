@@ -1,0 +1,9 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/deepmap/oapi-codegen/master/configuration-schema.json
+package: api
+output: internal/api/types.gen.go
+generate:
+  models: true
+output-options:
+  initialism-overrides: true 
+  skip-prune: false
+  # nullable-type: true

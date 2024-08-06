@@ -1,0 +1,251 @@
+openapi: '3.0.2'
+info: 
+  title: Управление материалами Школы
+  description: ''
+  version: 0.0.1
+servers:
+  - url: '{protocol}://{hostsrv}/api/v1'
+    variables:
+      protocol:
+        enum:
+          - http
+          - https
+        default: http
+      hostsrv:
+        default: localhost:9000
+externalDocs:
+  url: https://docs.google.com/document/d/1H2gj6ltFZX3gH9jmuI0dAwTYNfHjwmWRFs0I3_mWA5E/edit
+paths:
+  /school/materials:
+    get:
+      tags:
+        - /material
+      parameters:
+        - in: query
+          name: material_type
+          required: false
+          schema:
+            $ref: '#/components/schemas/materialType'
+          # x-go-type-skip-optional-pointer: true
+        - in: query
+          name: from_created_at
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - in: query
+          name: to_created_at
+          required: false
+          schema:
+            type: string
+            format: date-time
+        - in: query
+          name: page
+          schema:
+            type: integer
+            minimum: 1
+          required: false
+        - in: query
+          name: page_size
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 30
+          required: false
+      operationId: GetSchoolMaterialArray
+      responses:
+        200:
+          $ref: '#/components/responses/SchoolMaterialArrayResponseOK'
+        400:
+          description: BadRequest
+        500:
+          description: InternalError
+    post:
+      tags:
+      - /material
+      operationId: CreateSchoolMaterial
+      requestBody:
+        $ref: '#/components/requestBodies/NewSchoolMaterial'
+      responses:
+        201:
+          $ref: '#/components/responses/UUIDResponseOK'
+        400:
+          description: BadRequest
+        500:
+          description: InternalError
+  /school/materials/{material_id}:
+    parameters:
+      - in: path
+        name: material_id
+        required: true
+        schema:
+          type: string
+          format: uuid
+    get:
+      tags:
+        - /material
+      operationId: GetSchoolMaterial
+      responses:
+        200:
+          $ref: '#/components/responses/SchoolMaterialResponseOK'
+        400:
+          description: BadRequest
+        404:
+          description: NotFound
+        500:
+          description: InternalError
+    put:
+      tags:
+        - /material
+      operationId: UpdateSchoolMaterial
+      requestBody:
+        $ref: '#/components/requestBodies/UpdateSchoolMaterial'
+      responses:
+        200:
+          $ref: '#/components/responses/SchoolMaterialResponseOK'
+        400:
+          description: BadRequest
+        404:
+          description: NotFound
+        500:
+          description: InternalError
+
+components:
+  schemas:
+    nullTimestamptzType:
+      type: string
+      format: date-time
+      description: rfc3339
+      nullable: true
+      x-go-type: null.Time
+      x-go-type-import:
+        path: github.com/guregu/null/v5
+        name: "null"
+      x-go-type-skip-optional-pointer: true
+    materialType:
+      type: string
+      description: Тип материала
+      enum:
+        - article
+        - video
+        - presentation
+    SchoolMaterial:
+      type: object
+      required:
+        - id
+        - material_type
+        - status
+        - name
+        - content
+        - created_at
+        - updated_at
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+          description: Краткое название материала
+        content:
+          type: string
+          description: Текстовое описание материала
+        status:
+          type: string
+          description: Статус публикации
+          enum:
+          - archive
+          - active
+        material_type:
+          $ref: "#/components/schemas/materialType"
+        created_at:
+          type: string
+          description: Дата создания
+          format: date-time
+        updated_at:
+          type: string
+          description: Дата изменения
+          format: date-time
+    SchoolMaterialPayload:
+      type: object
+      required:
+        - material_type
+        - status
+        - name
+        - content
+      properties:
+        material_type:
+          $ref: "#/components/schemas/materialType"
+        status:
+          type: string
+          enum:
+          - archive
+          - active
+        name:
+          type: string
+        content:
+          type: string
+    SchoolMaterialUpdatePayload:
+      type: object
+      required:
+        - material_type
+        - status
+        - name
+        - content
+      properties:
+        # material_type:
+        #   $ref: "#/components/schemas/materialType"
+        status:
+          type: string
+          enum:
+          - archive
+          - active
+        name:
+          type: string
+        content:
+          type: string
+    SchoolMaterialArray:
+      type: object
+      required:
+        - "materials"
+      properties:
+        materials:
+          type: array
+          items:
+            $ref: "#/components/schemas/SchoolMaterial"
+          x-go-type-skip-optional-pointer: true
+  responses:
+    SchoolMaterialResponseOK:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/SchoolMaterial"
+    SchoolMaterialArrayResponseOK:
+      description: ''
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SchoolMaterialArray'
+    UUIDResponseOK:
+      description: ''
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              uuid:
+                type: string
+                format: uuid
+  requestBodies:
+    NewSchoolMaterial:
+      description: Create school material
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SchoolMaterialPayload'
+    UpdateSchoolMaterial:
+      description: Create school material
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SchoolMaterialPayload'
