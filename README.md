@@ -66,7 +66,7 @@ uuid
 |Переменная|Пример|
 |----------|---------------------|
 |DATABASE_DRIVER|postgres|
-|DATABASE_URL|postgres://postgres:postgres@pgsql:5432/schoolmat?sslmode=disable|
+|DATABASE_URL|postgres://postgres:postgres@pgsql:5432/school?sslmode=disable|
 |HOST|0.0.0.0|
 |POSRT|9000|
 
@@ -76,8 +76,8 @@ uuid
 
 ### 1. Копирование репозитория
 ```bash
-git clone git@github.com:aboogi/schoolmat-example-rest.git schoolmat
-cd schoolmat
+git clone git@github.com:aboogi/school-example-rest.git school
+cd school
 ```
 
 ### 2. Сборка образа проекта и запуск через docker-compose
@@ -92,4 +92,4 @@ make dockerc-upb
    
 
 2. [Postman-коллекция](
-    ./api/schoolmat-rest.postman_collection.json)
+    ./api/school-rest.postman_collection.json)

@@ -6,7 +6,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: schoolmat
+      POSTGRES_DB: school
       PGDATA: /data/postgres
     volumes:
        - postgres:/data/postgres
@@ -14,15 +14,15 @@ services:
       - "5434:5432"
     restart: unless-stopped
   
-  schoolmat:
-    container_name: "schoolmat"
+  api:
+    container_name: "school"
     depends_on:
       - pgsql
     environment:
       PORT: 9000
 
       DATABASE_DRIVER: postgres
-      DATABASE_URL: postgres://postgres:postgres@pgsql:5432/schoolmat?sslmode=disable
+      DATABASE_URL: postgres://postgres:postgres@pgsql:5432/school?sslmode=disable
     ports:
       - "9000:9000"
     build:

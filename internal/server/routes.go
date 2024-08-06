@@ -1,6 +1,6 @@
 package server
 
-import "schoolmat/internal/api"
+import "school/internal/api"
 
 func RegisteringAPIRoutes(s Server, baseURL string) {
 	r := Routes{

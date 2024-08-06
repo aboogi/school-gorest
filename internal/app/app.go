@@ -2,9 +2,9 @@ package app
 
 import (
 	"context"
-	"schoolmat/internal/config"
-	"schoolmat/internal/server"
-	"schoolmat/internal/storage"
+	"school/internal/config"
+	"school/internal/server"
+	"school/internal/storage"
 
 	"go.uber.org/zap"
 )

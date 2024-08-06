@@ -1,7 +1,7 @@
 package server
 
 import (
-	"schoolmat/internal/api"
+	"school/internal/api"
 
 	echoSwagger "github.com/swaggo/echo-swagger"
 	"github.com/swaggo/swag"

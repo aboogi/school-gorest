@@ -3,7 +3,7 @@ package storage
 import (
 	"context"
 	"database/sql"
-	"schoolmat/internal/storage/db"
+	"school/internal/storage/db"
 )
 
 type Connection struct {

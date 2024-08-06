@@ -3,8 +3,8 @@ package server
 import (
 	"context"
 	"fmt"
-	"schoolmat/internal/config"
-	"schoolmat/internal/storage"
+	"school/internal/config"
+	"school/internal/storage"
 	"time"
 
 	"github.com/labstack/echo/v4"

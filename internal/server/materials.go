@@ -4,9 +4,9 @@ import (
 	"database/sql"
 	"fmt"
 	"net/http"
-	"schoolmat/internal/api"
-	"schoolmat/internal/storage"
-	"schoolmat/internal/storage/db"
+	"school/internal/api"
+	"school/internal/storage"
+	"school/internal/storage/db"
 	"time"
 
 	"github.com/google/uuid"

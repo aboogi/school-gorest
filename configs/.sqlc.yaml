@@ -2,7 +2,7 @@ version: "2"
 sql:
   - engine: postgresql
     # database:
-      # uri: 'postgres://postgres:postgres@127.0.0.1:5432/schoolmat'
+      # uri: 'postgres://postgres:postgres@127.0.0.1:5432/school'
     queries:
       - ../sql/queries
     schema:

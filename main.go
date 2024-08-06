@@ -4,10 +4,10 @@ import (
 	"context"
 	"os"
 	"os/signal"
-	"schoolmat/internal/app"
-	"schoolmat/internal/config"
-	"schoolmat/internal/logger"
-	"schoolmat/sql"
+	"school/internal/app"
+	"school/internal/config"
+	"school/internal/logger"
+	"school/sql"
 
 	"github.com/caarlos0/env/v7"
 )

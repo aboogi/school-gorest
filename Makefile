@@ -21,7 +21,7 @@ build:
 	/usr/local/go/bin/go build
 
 postgres-mock-up:
-	docker run --rm --name postgres15 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=schoolmat -p 5432:5432 -d postgres:15-alpine
+	docker run --rm --name postgres15 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=school -p 5432:5432 -d postgres:15-alpine
 
 dockerc-upb:
 	docker compose -f deployments/docker-compose.yaml up --build

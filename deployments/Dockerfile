@@ -13,7 +13,7 @@ COPY internal ./internal/
 COPY sql ./sql/
 
 
-RUN CGO_ENABLED=0 GOOS=linux go build -trimpath -o "schoolmat"
+RUN CGO_ENABLED=0 GOOS=linux go build -trimpath -o "school"
 
 
 FROM alpine as prod
@@ -23,7 +23,7 @@ LABEL stage=deployer
 RUN set -ex && apk --update add libc6-compat
 
 WORKDIR /app
-COPY --from=build /app/schoolmat .
+COPY --from=build /app/school .
 
 EXPOSE 9000
-ENTRYPOINT [ "./schoolmat" ]
+ENTRYPOINT [ "./school" ]
